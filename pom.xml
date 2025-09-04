@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.rulesengine</groupId>
+  <artifactId>rules-engine-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging> <!-- This line is critical -->
+
+  <name>Rules Engine Parent</name>
+
+  <!-- Defines versions for all sub-modules to use -->
+  <properties>
+    <java.version>17</java.version>
+    <spring-boot.version>3.1.5</spring-boot.version>
+    <drools.version>8.42.0.Final</drools.version>
+    <jjwt.version>0.11.5</jjwt.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- Drools BOM -->
+      <dependency>
+        <groupId>org.drools</groupId>
+        <artifactId>drools-bom</artifactId>
+        <version>8.42.0.Final</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- Spring BOM -->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-framework-bom</artifactId>
+        <version>6.1.14</version> <!-- latest Spring Framework 6.x -->
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+
+
+  <!-- Lists all the sub-projects (modules) inside this parent -->
+  <modules>
+    <module>rules-engine-model</module>
+    <module>rules-engine-drools</module>
+    <module>rules-engine-app</module>
+  </modules>
+
+</project>
